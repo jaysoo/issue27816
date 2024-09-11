@@ -9,21 +9,6 @@
       "factory": "./src/generators/foo/generator",
       "schema": "./src/generators/foo/schema.json",
       "description": "foo generator"
-    },
-    "bar": {
-      "factory": "./src/generators/bar/generator",
-      "schema": "./src/generators/bar/schema.json",
-      "description": "bar generator"
-    },
-    "faz": {
-      "factory": "./src/generators/faz/generator",
-      "schema": "./src/generators/faz/schema.json",
-      "description": "faz generator"
-    },
-    "baz": {
-      "factory": "./src/generators/baz/generator",
-      "schema": "./src/generators/baz/schema.json",
-      "description": "baz generator"
     }
   }
 }
