@@ -2,9 +2,9 @@
   "name": "@issue27816/myplugin",
   "version": "0.0.1",
   "dependencies": {
-    "@nx/devkit": "19.7.2",
+    "@nx/devkit": "19.0.0",
     "tslib": "^2.3.0",
-    "@nx/js": "19.7.2"
+    "@nx/js": "19.0.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",
