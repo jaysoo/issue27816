@@ -1,24 +1,27 @@
 import {
-  addProjectConfiguration,
+  getProjects,
   formatFiles,
   generateFiles,
   Tree,
 } from '@nx/devkit';
 import * as path from 'path';
+import { libraryGenerator } from '@nx/js';
 import { ChartGeneratorSchema } from './schema';
 
 export async function chartGenerator(
   tree: Tree,
   options: ChartGeneratorSchema
 ) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
+  await libraryGenerator(tree, {
+    name: options.name,
+    directory: `libs/${options.name}`,
+    projectNameAndRootFormat: 'as-provided',
   });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
+
+  const project = getProjects(tree).get(options.name);
+
+  generateFiles(tree, path.join(__dirname, 'files'), project.root, options);
+
   await formatFiles(tree);
 }
 

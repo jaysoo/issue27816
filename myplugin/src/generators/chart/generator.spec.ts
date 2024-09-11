@@ -1,6 +1,6 @@
 import { describe, it, beforeEach, expect } from 'vitest';
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nx/devkit';
+import { joinPathFragments, Tree, readProjectConfiguration } from '@nx/devkit';
 
 import { chartGenerator } from './generator';
 import { ChartGeneratorSchema } from './schema';
@@ -17,5 +17,6 @@ describe('chart generator', () => {
     await chartGenerator(tree, options);
     const config = readProjectConfiguration(tree, 'test');
     expect(config).toBeDefined();
+    expect(tree.exists(joinPathFragments(config.root, 'src/index.ts'))).toBeTruthy();
   });
 });
